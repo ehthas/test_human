@@ -1,0 +1,79 @@
+# Publish all joint states  ------------------------------------------
+joint_state_controller:
+  type: joint_state_controller/JointStateController
+  publish_rate: 50
+
+# Position Controllers -----------------------------------------------
+#jright_ankle_position_controller:
+#  type: effort_controllers/JointPositionController
+#  joint: jright_ankle 
+#  pid: {p: 100.0, i: 0.01, d: 10.0}
+#jright_knee_position_controller:
+#  type: effort_controllers/JointPositionController
+#  joint: jright_knee 
+#  pid: {p: 100.0, i: 0.01, d: 10.0}
+#jright_hip_position_controller:
+#  type: effort_controllers/JointPositionController
+#  joint: jright_hip 
+#  pid: {p: 100.0, i: 0.01, d: 10.0}
+#jleft_hip_position_controller:
+#  type: effort_controllers/JointPositionController
+#  joint: jleft_hip 
+#  pid: {p: 100.0, i: 0.01, d: 10.0}
+#jleft_knee_position_controller:
+#  type: effort_controllers/JointPositionController
+#  joint: jleft_knee 
+#  pid: {p: 100.0, i: 0.01, d: 10.0}
+#jleft_ankle_position_controller:
+#  type: effort_controllers/JointPositionController
+#  joint: jleft_ankle 
+#  pid: {p: 100.0, i: 0.01, d: 10.0}
+#jtrunk_bottom_position_controller:
+#  type: effort_controllers/JointPositionController
+#  joint: jtrunk_bottom 
+#  pid: {p: 100.0, i: 0.01, d: 10.0}
+#jtrunk_center_position_controller:
+#  type: effort_controllers/JointPositionController
+#  joint: jtrunk_center 
+#  pid: {p: 100.0, i: 0.01, d: 10.0}
+#jtrunk_ptop_position_controller:
+#  type: effort_controllers/JointPositionController
+#  joint: jtrunk_ptop 
+#  pid: {p: 100.0, i: 0.01, d: 10.0}
+#jtrunk_top_position_controller:
+#  type: effort_controllers/JointPositionController
+#  joint: jtrunk_top 
+#  pid: {p: 100.0, i: 0.01, d: 10.0}
+#jneck_position_controller:
+#  type: effort_controllers/JointPositionController
+#  joint: jneck 
+#  pid: {p: 100.0, i: 0.01, d: 10.0}
+#jhead_position_controller:
+#  type: effort_controllers/JointPositionController
+#  joint: jhead 
+#  pid: {p: 100.0, i: 0.01, d: 10.0}
+jright_shoulder_position:
+  type: position_controllers/JointPositionController
+  joint: jright_shoulder  
+#  pid: {p: 100.0, i: 0.01, d: 10.0}
+jright_upper_arm_position:
+  type: position_controllers/JointPositionController
+  joint: jright_upper_arm 
+#  pid: {p: 100.0, i: 0.01, d: 10.0}
+jright_forearm_position:
+  type: position_controllers/JointPositionController
+  joint: jright_forearm 
+#  pid: {p: 100.0, i: 0.01, d: 10.0}
+#jright_wrist_position_controller:
+#  type: effort_controllers/JointPositionController
+#  joint: jright_wrist 
+#  pid: {p: 100.0, i: 0.01, d: 10.0}
+#jleft_grip_rhand_position_controller:
+#  type: effort_controllers/JointPositionController
+#  joint: jleft_grip_rhand 
+#  pid: {p: 100.0, i: 0.01, d: 10.0}
+jright_grip_rhand_position:
+  type: position_controllers/JointPositionController
+  joint: jright_grip_rhand 
+#  pid: {p: 100.0, i: 0.01, d: 10.0}
+

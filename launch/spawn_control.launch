@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+     <group ns="/mhuman">
+
+
+    <!-- define arguments -->
+<!--    <arg name="paused" default="false"/>
+    <arg name="use_sim_time" default="true"/>
+    <arg name="gui" default="true"/>
+    <arg name="debug" default="false" />
+    <arg name="verbose" default="true" /> -->
+
+   
+
+    <!-- startup simulated WORLD -->
+  <!--  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="paused" value="$(arg paused)" />
+        <arg name="use_sim_time" value="$(arg use_sim_time)" />
+        <arg name="gui" value="$(arg gui)" />
+        <arg name="debug" value="$(arg debug)" />
+        <arg name="verbose" value="$(arg verbose)" />
+    </include>   -->
+
+        <!-- Robot Model -->   
+        <param name="robot_description" command="$(find xacro)/xacro '$(find model_human)/urdf/model_human.xacro'" /> 
+        
+        <arg name="x" default="0"/>
+        <arg name="y" default="0"/>
+        <arg name="z" default="0"/>
+  
+        <!-- <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+        <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" /> -->
+        
+        <!-- Spawn the robot model -->
+        <node name="mhuman_spawn" pkg="gazebo_ros" type="spawn_model"  output="screen"  
+              args="-urdf -param robot_description -model mhuman -x $(arg x) -y $(arg y) -z $(arg z)" /> 
+
+        <!-- Load Controllers -->
+        <rosparam command="load" file="$(find model_human)/config/joints.yaml"/> 
+
+        <!-- Controllers -->
+        <node name="controller_spawner" pkg="controller_manager" type="spawner"  
+              respawn="false" output="screen" ns="/mhuman" 
+              args="joint_state_controller arm_controller gripper_controller">
+<!--              jright_shoulder_position
+              jright_upper_arm_position
+              jright_forearm_position
+              jright_grip_rhand_position
+              **** 2dashes ****timeout 60    -->
+<!--          jright_wrist_position_controller
+              jleft_grip_rhand_position_controller
+              jneck_position_controller
+              jhead_position_controller
+              jright_knee_position_controller
+              jright_hip_position_controller
+              jleft_hip_position_controller
+              jleft_knee_position_controller
+              jtrunk_bottom_position_controller
+              jtrunk_center_position_controller
+              jtrunk_ptop_position_controller
+              jtrunk_top_position_controller
+          jright_ankle_position_controller 
+jleft_ankle_position_controller  --> 
+               
+        </node> 
+     
+      </group>
+
+</launch>
+

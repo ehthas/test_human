@@ -1,0 +1,69 @@
+# Publish all joint states
+joint_state_controller:
+  type: "joint_state_controller/JointStateController"
+  publish_rate: 50
+
+# Control all joints
+arm_controller:
+  type: "position_controllers/JointTrajectoryController"
+  joints:
+    - jright_shoulder
+    - jright_upper_arm
+    - jright_forearm
+  
+  constraints: 
+      goaltime: 0.6
+      stopped_velocity_tolerance: 0.05
+      jright_shoulder: {trajectory: 0.1, goal: 0.1}
+      jright_upper_arm: {trajectory: 0.1, goal: 0.1}
+      jright_forearm: {trajectory: 0.1, goal: 0.1}
+
+  stop_trajectory_duration: 0.5
+  state_publish_rate: 25
+  action_monitor_rate: 10
+      
+gripper_controller:
+  type: "position_controllers/JointTrajectoryController"
+  joints:
+    - jright_grip_rhand
+
+  constraints: 
+      goaltime: 0.6
+      stopped_velocity_tolerance: 0.05
+      jright_grip_rhand: {trajectory: 0.1, goal: 0.1}
+
+  stop_trajectory_duration: 0.5
+  state_publish_rate: 25
+  action_monitor_rate: 10
+
+#  gains:
+#    jright_shoulder: {p: 100.0, i: 0.01, d: 10.0}
+#    jright_upper_arm: {p: 100.0, i: 0.01, d: 10.0}
+#    jright_forearm: {p: 100.0, i: 0.01, d: 10.0}
+#   jright_grip_rhand: {p: 100.0, i: 0.01, d: 10.0}
+
+
+#jright_shoulder_position_controller:
+#  type: effort_controllers/JointPositionController
+#  joint: jright_shoulder  
+#  pid: {p: 100.0, i: 0.01, d: 10.0}
+#jright_upper_arm_position_controller:
+#  type: effort_controllers/JointPositionController
+#  joint: jright_upper_arm 
+#  pid: {p: 100.0, i: 0.01, d: 10.0}
+#jright_forearm_position_controller:
+#  type: effort_controllers/JointPositionController
+#  joint: jright_forearm 
+#  pid: {p: 100.0, i: 0.01, d: 10.0}
+#jright_wrist_position_controller:
+#  type: effort_controllers/JointPositionController
+#  joint: jright_wrist 
+#  pid: {p: 100.0, i: 0.01, d: 10.0}
+#jleft_grip_rhand_position_controller:
+#  type: effort_controllers/JointPositionController
+#  joint: jleft_grip_rhand 
+#  pid: {p: 100.0, i: 0.01, d: 10.0}
+#jright_grip_rhand_position_controller:
+#  type: effort_controllers/JointPositionController
+#  joint: jright_grip_rhand 
+#  pid: {p: 100.0, i: 0.01, d: 10.0}
